@@ -1,29 +1,28 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+
+  const [fontsLoaded] = useFonts({
+    "PressStart": require("../assets/fonts/PressStart2P-Regular.ttf"),
   });
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
+  if (!fontsLoaded) {
     return null;
   }
 
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+  return <Stack
+    screenOptions={{
+      headerStyle: { backgroundColor: "#111" },
+      headerTintColor: "#fff",
+      headerTitleStyle: { fontWeight: "bold", fontFamily: "PressStart" },
+      contentStyle: { backgroundColor: "#111" },
+    }}>
+    <Stack.Screen
+      name="index"
+      options={{ title: "Game Finder" }}
+    />
+    <Stack.Screen name="game/[id]" options={{ title: "Loading..." }} />
+
+  </Stack>;
 }
