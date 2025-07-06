@@ -1,50 +1,71 @@
-# Welcome to your Expo app 👋
+# GameExplorerApp
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Mobile app to search and view video game information using the RAWG API.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Real-time game search
+- Game details view (release date, rating, platforms, genres)
+- Dark mode interface optimized for gaming
+- Retro gaming "Press Start 2P" font
 
-   ```bash
-   npm install
-   ```
+## Prerequisites
 
-2. Start the app
+- Node.js (version 18 or higher)
+- npm or yarn
+- Expo CLI (`npm install -g expo-cli`)
+- Expo Go app on mobile device for testing
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Installation
 
 ```bash
-npm run reset-project
+# Clone the repository
+git clone [repository-url]
+cd GameExplorerApp
+
+# Install dependencies
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Getting Started
 
-## Learn more
+```bash
+# Start the development server
+npx expo start
 
-To learn more about developing your project with Expo, look at the following resources:
+# For iOS
+npx expo start --ios
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# For Android
+npx expo start --android
+```
 
-## Join the community
+## API
 
-Join our community of developers creating universal apps.
+The app uses the public RAWG API to fetch video game data. The API key is included in the `utils/api.ts` file.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Technologies Used
+
+- React Native
+- Expo
+- TypeScript
+- Expo Router
+- RAWG API
+
+## Build
+
+To create a production build:
+
+```bash
+# Build for iOS
+eas build --platform ios
+
+# Build for Android
+eas build --platform android
+```
+
+## Notes
+
+- The app requires an internet connection to work
+- Search results appear after typing at least 3 characters
+- Only portrait orientation is supported
